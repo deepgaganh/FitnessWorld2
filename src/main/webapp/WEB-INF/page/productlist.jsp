@@ -24,9 +24,9 @@
 						<url:url value="/all/product/viewproduct/${p.id }" var="url"></url:url>
 						<td><a href="${url }"><span
 						class="glyphicon glyphicon-info-sign"></span></a></td>
-						<url:url value="/admin/product/deleteproduct/{id}" var="url"></url:url>
+						<url:url value="/admin/product/deleteproduct/${p.id }" var="url"></url:url>
 						<td><a href="${url }"><span
-						class="glyphicon glyphicon-info-sign"></span></a></td>
+						class="glyphicon  glyphicon-trash"></span></a></td>
 					
 					</tr>
 				</c:forEach>
