@@ -15,31 +15,31 @@ import com.niit.service.CategoryService;
 @Controller
 public class CategoryController {
 
-			@Autowired
+	@Autowired
 	private CategoryService categoryService;
-	
-	@RequestMapping(value="admin/category/categoryform")
+
+	@RequestMapping(value = "admin/category/categoryform")
 	public String getCategory(Model model) {
 		model.addAttribute("category", new Category());
 		return "categoryform";
 	}
-	
-	@RequestMapping(value="admin/product/saveproduct")
+
+	@RequestMapping(value = "admin/category/savecategory")
 	public String saveCategory(@ModelAttribute(name = "category") Category category) {
 		categoryService.saveCategory(category);
 		return "redirect:/all/category/categorylist";
 	}
-	
-	@RequestMapping(value="/all/category/categorylist")
-	public String getAllCategories(Model model){
-		List<Category> categories=categoryService.getAllCategories();
-		model.addAttribute("categories",categories);
+
+	@RequestMapping(value = "/all/category/categorylist")
+	public String getAllCategories(Model model) {
+		List<Category> categories = categoryService.getAllCategories();
+		model.addAttribute("categories", categories);
 		return "categorieslist";
 	}
-	
-	@RequestMapping(value="/admin/product/deleteproduct/{cid}")
-	public String deleteCategory(@PathVariable int cid){
-		categoryService.deleteCategory(cid);		
+
+	@RequestMapping(value = "/admin/category/deletecategory/{cid}")
+	public String deleteCategory(@PathVariable int cid) {
+		categoryService.deleteCategory(cid);
 		return "redirect:/all/category/categorylist";
 	}
 }
