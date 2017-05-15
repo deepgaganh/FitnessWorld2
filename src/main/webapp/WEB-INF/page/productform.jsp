@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="url"%>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -25,7 +25,7 @@
 <body>
 	<div class="container wrapper">
 		<div class="container">
-			<url:url value="/admin/product/saveproduct"  var="url" ></url:url>
+			<url:url value="/admin/product/saveproduct" var="url"></url:url>
 			<form:form action="${url }" modelAttribute="product" method="post">
 
 				<div class="form-group">
@@ -43,6 +43,11 @@
 					<form:input path="manufacturer"></form:input>
 				</div>
 
+				<div class="form-group">
+					<label for="discription">Discription</label>
+					<form:input path="discription"></form:input>
+				</div>
+
 
 				<div class="form-group">
 					<label for="price">Product Price</label>
@@ -55,6 +60,19 @@
 					<form:input path="unitInStock"></form:input>
 				</div>
 
+				<div class="form-group">
+					<label for="unitInStock">Unit In Stock</label>
+					<form:input path="unitInStock"></form:input>
+				</div>
+				
+				<div>
+				<label for="category">Select Category</label>
+				<c:forEach items="${name }" var="c">
+
+					<form:radiobutton path="category.cid" value="${c.cid }" />${c.name }
+
+				</c:forEach>
+				</div>
 				<input type="submit" value="Add Product">
 
 			</form:form>
