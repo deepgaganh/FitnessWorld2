@@ -18,7 +18,7 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
-	@RequestMapping(value = "admin/category/categoryform")
+	@RequestMapping(value ="admin/category/categoryform")
 	public String getCategory(Model model) {
 		model.addAttribute("category", new Category());
 		return "categoryform";
@@ -34,7 +34,7 @@ public class CategoryController {
 	public String getAllCategories(Model model) {
 		List<Category> categories = categoryService.getAllCategories();
 		model.addAttribute("categories", categories);
-		return "categorieslist";
+		return "categorylist";
 	}
 
 	@RequestMapping(value = "/admin/category/deletecategory/{cid}")
