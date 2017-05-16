@@ -9,21 +9,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.niit.model.Category;
 import com.niit.model.Product;
-import com.niit.service.CategoryService;
 import com.niit.service.ProductService;
 
 @Controller
 public class ProductController {
 			@Autowired
 	private ProductService productService;
-			@Autowired
-	private CategoryService categoryService;
+		
 	@RequestMapping(value="admin/product/productform")
 	public String getProduct(Model model){
 		model.addAttribute("product",new Product());
-		List<Category> categories = categoryService.getAllCategories();
 		return "productform";
 		
 	}
@@ -32,6 +28,7 @@ public class ProductController {
 		productService.saveProduct(product);
 		return "redirect:/all/product/productlist";
 	}
+	
 	@RequestMapping("/all/product/productlist")
 	public String getAllProducts(Model model){
 		List<Product> products=productService.getAllProducts();

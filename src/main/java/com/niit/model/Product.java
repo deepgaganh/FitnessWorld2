@@ -4,8 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product {
@@ -18,10 +19,9 @@ public class Product {
 	private String discription;
 	private double price;
 	private int unitInStock;
-
-			@ManyToOne
-			@JoinColumn(name="cid")
-	private Category category;
+	
+			@Transient
+	private MultipartFile image;
 
 	public int getId() {
 		return id;
@@ -71,12 +71,12 @@ public class Product {
 		this.unitInStock = unitInStock;
 	}
 
-	public Category getCategory() {
-		return category;
+	public MultipartFile getImage() {
+		return image;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setImage(MultipartFile image) {
+		this.image = image;
 	}
 
 	
