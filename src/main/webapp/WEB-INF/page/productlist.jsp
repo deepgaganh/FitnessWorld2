@@ -19,17 +19,22 @@
 
 				<c:forEach items="${products}" var="p">
 					<tr>
-				<%-- 	<td><img src="resources/images/${p.id }.png" height="50" width="50" ></td>
-				 --%>
+						<url:url value="/resources/images/${p.id }.png" var="url"></url:url>
+						<td><img src="${url }" height="50" width="50"></td>
+
 						<td>${p.name }</td>
 						<td>${p.price }</td>
 						<url:url value="/all/product/viewproduct/${p.id }" var="url"></url:url>
 						<td><a href="${url }"><span
-						class="glyphicon glyphicon-info-sign"></span></a></td>
+								class="glyphicon glyphicon-info-sign"></span></a></td>
+						<url:url value="/admin/product/editproduct/${p.id }" var="url1"></url:url>
+						<td><a href="${url1 }"><span
+								class="glyphicon  glyphicon-pencil"></span></a></td>
+
 						<url:url value="/admin/product/deleteproduct/${p.id }" var="url"></url:url>
 						<td><a href="${url }"><span
-						class="glyphicon  glyphicon-trash"></span></a></td>
-					
+								class="glyphicon  glyphicon-trash"></span></a></td>
+
 					</tr>
 				</c:forEach>
 			</tr>

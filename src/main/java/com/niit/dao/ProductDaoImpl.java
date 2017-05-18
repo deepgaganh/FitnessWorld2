@@ -13,7 +13,7 @@ import com.niit.model.Product;
 public class ProductDaoImpl implements ProductDao{
 			@Autowired
 	private SessionFactory sessionFactory;
-	public void saveProduct(Product product) {
+	public void saveOrUpdateProduct(Product product) {
 		Session session=sessionFactory.openSession();
 		System.out.println("Product Id before insertion" +product.getId());
 		session.save(product);

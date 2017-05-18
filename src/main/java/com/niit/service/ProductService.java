@@ -6,7 +6,7 @@ import com.niit.model.Product;
 
 public interface ProductService {
 	
-	void saveProduct(Product product);
+	void saveOrUpdateProduct(Product product);
 	
 	List<Product> getAllProducts();
 	

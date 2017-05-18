@@ -26,7 +26,8 @@
 	<div class="container wrapper">
 		<div class="container">
 			<url:url value="/admin/product/saveproduct" var="url"></url:url>
-			<form:form action="${url }" modelAttribute="product" method="post" enctype="multipart/form-data">
+			<form:form action="${url }" modelAttribute="product" method="post"
+				enctype="multipart/form-data">
 
 				<div class="form-group">
 					<label for="id"></label>
@@ -59,7 +60,13 @@
 					<label for="unitInStock">Unit In Stock</label>
 					<form:input path="unitInStock"></form:input>
 				</div>
-				
+
+				<div class="form-group">
+					<label for="image">Upload Image</label> <input type="file"
+						name="image">
+				</div>
+
+
 				<input type="submit" value="Add Product">
 
 			</form:form>

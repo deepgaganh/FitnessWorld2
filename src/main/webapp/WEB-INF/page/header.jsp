@@ -29,8 +29,10 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="home"><img
-				src="resources/images/logo 500 by 250.png" class="img-responsive"></a>
+			<url:url value="/home" var="url"></url:url>
+			<a class="navbar-brand" href="url">
+			
+			<img src="resources/images/logo 500 by 250.png" class="img-responsive"></a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
@@ -46,7 +48,8 @@
 				</br>
 				</br>
 				</br>
-				<li class="active"><a href="home">Home</a></li>
+				<url:url value="/home" var="url"></url:url>
+				<li class="active"><a href="${url}">Home</a></li>
 				<li><a href="about">About Us</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Muscle Management<span class="caret"></span></a>
@@ -58,7 +61,7 @@
 					</ul></li>
 				<url:url value="admin/product/productform" var="url"></url:url>
 				<li><a href="${url }">Add New Product</a></li>
-				<url:url value="/all/product/productlist" var="url"></url:url>
+				<url:url value="all/product/productlist" var="url"></url:url>
 				<li><a href="${url }">Browse All Products</a></li>
 				
 				<url:url value="admin/category/categoryform" var="url"></url:url>
