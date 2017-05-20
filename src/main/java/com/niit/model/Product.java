@@ -20,7 +20,7 @@ public class Product {
 	private double price;
 	private int unitInStock;
 	
-			@Transient
+	@Transient
 	private MultipartFile image;
 
 	public int getId() {
@@ -78,6 +78,7 @@ public class Product {
 	public void setImage(MultipartFile image) {
 		this.image = image;
 	}
+
 
 	
 }

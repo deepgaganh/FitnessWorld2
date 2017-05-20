@@ -16,7 +16,7 @@ public class ProductDaoImpl implements ProductDao{
 	public void saveOrUpdateProduct(Product product) {
 		Session session=sessionFactory.openSession();
 		System.out.println("Product Id before insertion" +product.getId());
-		session.save(product);
+		session.saveOrUpdate(product);
 		System.out.println("Product Id after insertion" +product.getId());
 		session.flush();
 		session.close();

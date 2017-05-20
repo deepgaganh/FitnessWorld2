@@ -11,12 +11,12 @@ public class Category {
 			@Id
 			@GeneratedValue(strategy=GenerationType.AUTO)
 	private int cid;
-	private String name;
+	private String name;	
 	
-		
 	public int getCid() {
 		return cid;
 	}
+	
 	public void setCid(int cid) {
 		this.cid = cid;
 	}
@@ -26,6 +26,5 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+		
 }
