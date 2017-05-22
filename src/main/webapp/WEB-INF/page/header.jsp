@@ -61,10 +61,10 @@
 					</ul></li>
 				<url:url value="admin/product/productform" var="url"></url:url>
 				<li><a href="${url }">Add New Product</a></li>
-				<url:url value="all/product/productlist" var="url"></url:url>
+				<url:url value="/all/product/productlist" var="url"></url:url>
 				<li><a href="${url }">Browse All Products</a></li>
 				
-				<url:url value="admin/category/categoryform" var="url"></url:url>
+				<url:url value="/admin/category/categoryform" var="url"></url:url>
 				<li><a href="${url }">Add Category</a></li>
 				
 				<url:url value="/all/category/categorylist" var="url"></url:url>

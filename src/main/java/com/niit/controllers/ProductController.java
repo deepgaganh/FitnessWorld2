@@ -24,10 +24,11 @@ import com.niit.service.ProductService;
 public class ProductController {
 			@Autowired
 	private ProductService productService;
-			
+		
 	@RequestMapping(value="admin/product/productform")
 	public String getProduct(Model model){
 		model.addAttribute("product",new Product());
+		
 		return "productform";
 		
 	}

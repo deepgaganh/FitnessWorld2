@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -22,7 +24,11 @@ public class Product {
 	
 	@Transient
 	private MultipartFile image;
-
+	
+	@ManyToOne
+	@JoinColumn(name="category_id")
+	private Category category;
+	
 	public int getId() {
 		return id;
 	}
@@ -79,6 +85,14 @@ public class Product {
 		this.image = image;
 	}
 
+	public Category getCategory() {
+		return category;
+	}
 
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	
 	
 }
