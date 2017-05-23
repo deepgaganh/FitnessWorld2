@@ -17,18 +17,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.niit.model.Category;
 import com.niit.model.Product;
+import com.niit.service.CategoryService;
 import com.niit.service.ProductService;
 
 @Controller
 public class ProductController {
 			@Autowired
 	private ProductService productService;
-		
+			@Autowired
+	private CategoryService categoryService;
 	@RequestMapping(value="admin/product/productform")
 	public String getProduct(Model model){
 		model.addAttribute("product",new Product());
-		
+		List<Category> categoryDetails=categoryService.getAllCategories();
+		model.addAttribute("categorydetails",categoryDetails);
 		return "productform";
 		
 	}

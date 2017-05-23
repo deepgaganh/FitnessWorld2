@@ -26,7 +26,7 @@ public class Product {
 	private MultipartFile image;
 	
 	@ManyToOne
-	@JoinColumn(name="category_id")
+	@JoinColumn(name="cid")
 	private Category category;
 	
 	public int getId() {

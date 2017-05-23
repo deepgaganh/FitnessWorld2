@@ -66,6 +66,16 @@
 						name="image">
 				</div>
 
+				<div class="form-group">
+					<label for="category">Select Category</label>
+					<c:forEach items="${categorydetails }" var="c">
+
+						<form:radiobutton path="category.cid" value="${c.cid }" />${c.name }
+
+					</c:forEach>
+					
+				</div>
+
 
 				<input type="submit" value="Add Product">
 
