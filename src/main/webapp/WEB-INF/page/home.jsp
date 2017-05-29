@@ -9,7 +9,6 @@
 <title>Home</title>
 </head>
 <body>
-</br>
 	<div class="container-fluid">
 
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">

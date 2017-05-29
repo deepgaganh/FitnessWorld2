@@ -3,7 +3,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags" prefix="url"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
@@ -17,10 +17,23 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Angular Js -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+
+<link
+	href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"
+	rel="stylesheet">
 
 </head>
 <body>
 
+	<!-- Home Page Nav-Bar -->
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -29,11 +42,13 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
+	
 			<url:url value="/home" var="url"></url:url>
-			<a class="navbar-brand" href="url">
-			
-			<img src="resources/images/logo 500 by 250.png" class="img-responsive"></a>
+			<a class="navbar-brand" href="url"> <img
+				src="resources/images/logo 500 by 250.png" class="img-responsive"></a>
 		</div>
+		
+		<!-- Collapse Nav-bar -->
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
 				<ul class="nav navbar-nav navbar-right">
@@ -48,9 +63,15 @@
 				</br>
 				</br>
 				</br>
+				<!-- HOME -->
 				<url:url value="/home" var="url"></url:url>
 				<li class="active"><a href="${url}">Home</a></li>
-				<li><a href="about">About Us</a></li>
+				
+				<!-- ABOUT US -->
+				<url:url value="/about" var="url"></url:url>
+				<li><a href="${url}">About Us</a></li>
+				
+				<!-- DropDown -->
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Muscle Management<span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -59,25 +80,32 @@
 						<li><a href="fat">Fat Cutters</a></li>
 						<li><a href="pre">Pre Workout</a></li>
 					</ul></li>
-				<url:url value="admin/product/productform" var="url"></url:url>
+				
+				<!-- Admin Add Product -->			
+				<url:url value="/admin/product/productform" var="url"></url:url>
 				<li><a href="${url }">Add New Product</a></li>
+				
+				<!-- Browse All Product -->
 				<url:url value="/all/product/productlist" var="url"></url:url>
-				<li><a href="${url }">Browse All Products</a></li>
+				<li><a href="${url}">Browse All Products</a></li>
 				
+				<!-- Admin Add Category -->
 				<url:url value="/admin/category/categoryform" var="url"></url:url>
-				<li><a href="${url }">Add Category</a></li>
+				<li><a href="${url}">Add Category</a></li>
 				
+				<!-- Browse All Category -->				
 				<url:url value="/all/category/categorylist" var="url"></url:url>
-				<li><a href="${url }">Browse All Category</a></li>
-				
-				<li><a href="gym">Gym Accessories</a></li>
-				<li><a href="contact">Contact Us</a></li>
+				<li><a href="${url}">Browse All Category</a></li>
+
+				<!-- Contact Us -->
+				<url:url value="/contact" var="url"></url:url>
+				<li><a href="${url}">Contact Us</a></li>
 
 			</ul>
 
 		</div>
 	</div>
-	</nav>
+</nav>
 
 
 </body>

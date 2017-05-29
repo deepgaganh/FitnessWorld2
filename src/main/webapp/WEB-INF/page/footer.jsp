@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<div class="footer navbar-inverse navbar-fixed-bottom">
+	<div class="footer navbar-inverse navbar-bottom">
 		<div class="container-fluid">
 			<div class="container-fluid">
 				<div class="col-sm-8 col-sm-offset-2 text-center">
