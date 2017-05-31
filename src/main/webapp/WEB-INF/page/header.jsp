@@ -42,20 +42,39 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-	
+
 			<url:url value="/home" var="url"></url:url>
 			<a class="navbar-brand" href="url"> <img
 				src="resources/images/logo 500 by 250.png" class="img-responsive"></a>
 		</div>
-		
+
 		<!-- Collapse Nav-bar -->
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="login"><span class="glyphicon glyphicon-user"></span>
-							Sign Up</a></li>
-					<li><a href="sign_up"><span
-							class="glyphicon glyphicon-log-in"></span>Login</a></li>
+
+					<c:if test="${pageContext.request.userPrincipal.name!=null }">
+						<li><a href="">Welcome
+								${pageContext.request.userPrincipal.name }</a></li>
+					</c:if>
+
+
+
+					<url:url value="/all/registrationform" var="url"></url:url>
+					<c:if test="${pageContext.request.userPrincipal.name==null }">
+						<li><a href="${url}"><span
+								class="glyphicon glyphicon-log-in"></span>Sign Up</a></li>
+						<url:url value="/login" var="url"></url:url>
+						<li><a href="${url}"><span class="glyphicon glyphicon-user"></span>
+								login</a></li>
+					</c:if>
+
+					<c:if test="${pageContext.request.userPrincipal.name!=null }">
+						<li><a
+							href="<c:url value="/j_spring_security_logout"></c:url>">logout</a>
+						</li>
+					</c:if>
+
 				</ul>
 				</br>
 				</br>
@@ -66,11 +85,11 @@
 				<!-- HOME -->
 				<url:url value="/home" var="url"></url:url>
 				<li class="active"><a href="${url}">Home</a></li>
-				
+
 				<!-- ABOUT US -->
 				<url:url value="/about" var="url"></url:url>
 				<li><a href="${url}">About Us</a></li>
-				
+
 				<!-- DropDown -->
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown">Muscle Management<span class="caret"></span></a>
@@ -80,20 +99,20 @@
 						<li><a href="fat">Fat Cutters</a></li>
 						<li><a href="pre">Pre Workout</a></li>
 					</ul></li>
-				
-				<!-- Admin Add Product -->			
+
+				<!-- Admin Add Product -->
 				<url:url value="/admin/product/productform" var="url"></url:url>
 				<li><a href="${url }">Add New Product</a></li>
-				
+
 				<!-- Browse All Product -->
 				<url:url value="/all/product/productlist" var="url"></url:url>
 				<li><a href="${url}">Browse All Products</a></li>
-				
+
 				<!-- Admin Add Category -->
 				<url:url value="/admin/category/categoryform" var="url"></url:url>
 				<li><a href="${url}">Add Category</a></li>
-				
-				<!-- Browse All Category -->				
+
+				<!-- Browse All Category -->
 				<url:url value="/all/category/categorylist" var="url"></url:url>
 				<li><a href="${url}">Browse All Category</a></li>
 
@@ -105,7 +124,7 @@
 
 		</div>
 	</div>
-</nav>
+	</nav>
 
 
 </body>

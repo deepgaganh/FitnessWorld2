@@ -23,7 +23,7 @@ public class CustomerController {
 	@RequestMapping("/all/registrationform")		
 	public String getRegistrationForm(Model model){
 		model.addAttribute("customer",new Customer());
-		return "registration";
+		return "registrationpage";
 	}
 		@RequestMapping("all/register")
 		public String registerCustomer(@Valid @ModelAttribute(name="customer") Customer customer,BindingResult result,Model model){

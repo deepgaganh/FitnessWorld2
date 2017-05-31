@@ -72,16 +72,16 @@
 				<br>
 				<div class="boxed" style="border: 1px solid">
 					<div class="form-group">
-						<label for="billingAddress.streetname">Enter Streetname</label>
-						<form:input path="billingAddress.streetname"></form:input>
-						<form:errors path="billingAddress.streetname" cssStyle="color:red"></form:errors>
+						<label for="billingAddress.streetnumber">Enter Streetname</label>
+						<form:input path="billingAddress.streetnumber"></form:input>
+						<form:errors path="billingAddress.streetnumber" cssStyle="color:red"></form:errors>
 					</div>
 
 					<div class="form-group">
-						<label for="billingAddress.apartmentnumber">Enter
-							Apartment number</label>
-						<form:input path="billingAddress.apartmentnumber"></form:input>
-						<form:errors path="billingAddress.apartmentnumber"
+						<label for="billingAddress.housenumber">Enter
+							House number</label>
+						<form:input path="billingAddress.housenumber"></form:input>
+						<form:errors path="billingAddress.housenumber"
 							cssStyle="color:red"></form:errors>
 					</div>
 
@@ -106,17 +106,17 @@
 				<br>
 				<div class="boxed" style="border: 1px solid">
 					<div class="form-group">
-						<label for="shippingAddress.streetname">Enter Streetname</label>
-						<form:input path="shippingAddress.streetname"></form:input>
-						<form:errors path="shippingAddress.streetname"
+						<label for="shippingAddress.streetnumber">Enter Streetname</label>
+						<form:input path="shippingAddress.streetnumber"></form:input>
+						<form:errors path="shippingAddress.streetnumber"
 							cssStyle="color:red"></form:errors>
 					</div>
 
 					<div class="form-group">
-						<label for="shippingAddress.apartmentnumber">Enter
-							Apartment number</label>
-						<form:input path="shippingAddress.apartmentnumber"></form:input>
-						<form:errors path="shippingAddress.apartmentnumber"
+						<label for="shippingAddress.housenumber">Enter
+							House number</label>
+						<form:input path="shippingAddress.housenumber"></form:input>
+						<form:errors path="shippingAddress.housenumber"
 							cssStyle="color:red"></form:errors>
 					</div>
 
