@@ -30,6 +30,7 @@ public class Product {
 	@JoinColumn(name="cid")
 	private Category category;
 	
+		
 	public int getId() {
 		return id;
 	}
@@ -94,6 +95,5 @@ public class Product {
 		this.category = category;
 	}
 
-	
-	
+		
 }

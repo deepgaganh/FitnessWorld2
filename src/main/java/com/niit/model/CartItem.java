@@ -5,20 +5,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Cart {
-
+public class CartItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private double grandTotal;
 	@OneToOne
-	@JoinColumn(name = "customer_id")
-	private Customer customer;
-
-
+	@JoinColumn(name = "product_id")
+	private Product product;
+	
+	@ManyToOne
+	@JoinColumn(name = "cart_id")
+	private Cart cart;
+	
 	public int getId() {
 		return id;
 	}
@@ -27,21 +29,21 @@ public class Cart {
 		this.id = id;
 	}
 
-	public double getGrandTotal() {
-		return grandTotal;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setGrandTotal(double grandTotal) {
-		this.grandTotal = grandTotal;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public Cart getCart() {
+		return cart;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
-
-		 
+	
+	
 }

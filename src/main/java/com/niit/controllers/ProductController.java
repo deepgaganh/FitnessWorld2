@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.niit.model.Category;
@@ -28,6 +30,8 @@ public class ProductController {
 	private ProductService productService;
 			@Autowired
 	private CategoryService categoryService;
+			
+			/*To get New Product form*/
 	@RequestMapping(value="admin/product/productform")
 	public String getProduct(Model model){
 		model.addAttribute("product",new Product());
@@ -39,6 +43,7 @@ public class ProductController {
 
 	//input is id 
 	//output is product object
+	/*To edit the product*/
 	@RequestMapping("/admin/product/editproduct/{id}")
 	public String editproduct(@PathVariable int id, Model model)
 	{
@@ -49,7 +54,7 @@ public class ProductController {
 	}
 	
 	
-	
+	/*To save the Product and update*/
 	@RequestMapping(value="admin/product/saveproduct")
 	public String saveOrUpdateProduct(@Valid @ModelAttribute(name="product")Product product, BindingResult 	result){
 		productService.saveOrUpdateProduct(product);
@@ -69,6 +74,7 @@ public class ProductController {
 		return "redirect:/all/product/productlist";
 	}
 	
+	 /*To check the product list*/
 	@RequestMapping("/all/product/productlist")
 	public String getAllProducts(Model model){
 		List<Product> products=productService.getAllProducts();
@@ -79,6 +85,8 @@ public class ProductController {
 		model.addAttribute("products",products);
 		return "productlist";
 	}
+	
+	/*To view the product*/
 	// http://localhost:8080/proje/all/product/viewproduct/1
 	@RequestMapping("/all/product/viewproduct/{id}")
 	public String viewProduct(@PathVariable int id,Model model){
@@ -87,12 +95,26 @@ public class ProductController {
 		return "viewproduct";
 	}
 	
-	
+	/*To delete the Product*/
 	@RequestMapping("/admin/product/deleteproduct/{id}")
 	public String deleteProduct(@PathVariable int id){
 		productService.deleteProduct(id);
 		return "redirect:/all/product/productlist";
 	}
+	
+	/*To get the product by ID*/
+	@RequestMapping("/all/product/productsByCategory")
+	public String getProductsByCategory(@RequestParam(name="searchCondition") String searchCondition,
+			Model model,HttpSession session){
+	        session.setAttribute("categories",categoryService.getAllCategories());
+		List<Product> products=productService.getAllProducts();
+		//Assigning list of products to model attribute products
+		model.addAttribute("products",products);
+		model.addAttribute("searchCondition",searchCondition);
+		return "productlist";
+	}
+
+	
 }
 	
 

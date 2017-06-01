@@ -44,8 +44,9 @@
 			</button>
 
 			<url:url value="/home" var="url"></url:url>
-			<a class="navbar-brand" href="url"> <img
-				src="resources/images/logo 500 by 250.png" class="img-responsive"></a>
+			<a class="navbar-brand" href="${url}"> <url:url
+					value="resources/images/logo 500 by 250.png" var="url"></url:url> <img
+				src="${url}" class="img-responsive"></a>
 		</div>
 
 		<!-- Collapse Nav-bar -->
@@ -65,8 +66,8 @@
 						<li><a href="${url}"><span
 								class="glyphicon glyphicon-log-in"></span>Sign Up</a></li>
 						<url:url value="/login" var="url"></url:url>
-						<li><a href="${url}"><span class="glyphicon glyphicon-user"></span>
-								login</a></li>
+						<li><a href="${url}"><span
+								class="glyphicon glyphicon-user"></span> login</a></li>
 					</c:if>
 
 					<c:if test="${pageContext.request.userPrincipal.name!=null }">
@@ -91,16 +92,19 @@
 				<li><a href="${url}">About Us</a></li>
 
 				<!-- DropDown -->
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown">Muscle Management<span class="caret"></span></a>
+				<li class="dropdown"><a href="" class="dropdown-toggle"
+					data-toggle="dropdown"> Select by Category<b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="whey">Whey Protein</a></li>
-						<li><a href="isolated">Isolated Protein</a></li>
-						<li><a href="fat">Fat Cutters</a></li>
-						<li><a href="pre">Pre Workout</a></li>
+						<c:forEach var="c" items="${categories }">
+							<li><a
+								href="<c:url value="/all/product/productsByCategory?searchCondition=${c.name }"></c:url>">
+									${c.name }</a></li>
+						</c:forEach>
 					</ul></li>
 
+
 				<!-- Admin Add Product -->
+
 				<url:url value="/admin/product/productform" var="url"></url:url>
 				<li><a href="${url }">Add New Product</a></li>
 
