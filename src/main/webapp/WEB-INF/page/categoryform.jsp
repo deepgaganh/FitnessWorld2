@@ -20,7 +20,7 @@
 
 				<div class="form-group">
 					<label for="name">Enter Category name</label>
-					<form:input path="name"></form:input>
+					<form:input path="name" class="form-control"></form:input>
 				</div>
 
 

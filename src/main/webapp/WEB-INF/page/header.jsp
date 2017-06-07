@@ -17,19 +17,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- Angular Js -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 
-<!-- JQuery -->
-<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-<script
-	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-
-<link
-	href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"
-	rel="stylesheet">
-
+  <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+   <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
+   <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
 </head>
 <body>
 
@@ -92,7 +84,7 @@
 				<li><a href="${url}">About Us</a></li>
 
 				<!-- DropDown -->
-				<li class="dropdown"><a href="" class="dropdown-toggle"
+				<%-- <li class="dropdown"><a href="" class="dropdown-toggle"
 					data-toggle="dropdown"> Select by Category<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<c:forEach var="c" items="${categories }">
@@ -100,22 +92,25 @@
 								href="<c:url value="/all/product/productsByCategory?searchCondition=${c.name }"></c:url>">
 									${c.name }</a></li>
 						</c:forEach>
-					</ul></li>
+					</ul></li> --%>
 
 
 				<!-- Admin Add Product -->
-
+				
+				<c:if test="${pageContext.request.userPrincipal.name == 'samblaze75'}">
 				<url:url value="/admin/product/productform" var="url"></url:url>
 				<li><a href="${url }">Add New Product</a></li>
+				</c:if>
 
 				<!-- Browse All Product -->
 				<url:url value="/all/product/productlist" var="url"></url:url>
 				<li><a href="${url}">Browse All Products</a></li>
 
 				<!-- Admin Add Category -->
+				<c:if test="${pageContext.request.userPrincipal.name == 'samblaze75'}">
 				<url:url value="/admin/category/categoryform" var="url"></url:url>
 				<li><a href="${url}">Add Category</a></li>
-
+				</c:if>
 				<!-- Browse All Category -->
 				<url:url value="/all/category/categorylist" var="url"></url:url>
 				<li><a href="${url}">Browse All Category</a></li>

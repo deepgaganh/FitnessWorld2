@@ -9,6 +9,8 @@
 
 </head>
 <body>
+<url:url value="/resources/images/${product.id }.png" var="url"></url:url>
+<img src="${url}" height="300px" width="300px">
 	PRODUCT NAME: ${product.name }
 	</br> PRICE : ${product.price }
 	</br> MANUFACTURER: ${product.manufacturer }
@@ -17,7 +19,9 @@
 
 	<url:url value="/all/product/productlist" var="url1"></url:url>
 	<a href="${url1 }">Browse All Products</a>
-
+	
+	<url:url value="/all/cartitem/getproduct/${product.id }" var="url"></url:url>
+	<a href="${url}" class="btn btn-warning" role="button">Add to Cart</a>
 
 </body>
 <%@ include file="footer.jsp"%>

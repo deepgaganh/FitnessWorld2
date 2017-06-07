@@ -113,7 +113,6 @@ public class ProductController {
 		model.addAttribute("searchCondition",searchCondition);
 		return "productlist";
 	}
-
 	
 }
 	

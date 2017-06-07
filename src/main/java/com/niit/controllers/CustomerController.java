@@ -25,7 +25,8 @@ public class CustomerController {
 		model.addAttribute("customer",new Customer());
 		return "registrationpage";
 	}
-		@RequestMapping("all/register")
+	
+		@RequestMapping("/all/register")
 		public String registerCustomer(@Valid @ModelAttribute(name="customer") Customer customer,BindingResult result,Model model){
 			if(result.hasErrors())
 				return "registrationpage"; //nonempty values..
@@ -49,7 +50,7 @@ public class CustomerController {
 				}
 			customerService.saveCustomer(customer);
 			
-			return "login";
+			return "home";
 		}
 		
 }

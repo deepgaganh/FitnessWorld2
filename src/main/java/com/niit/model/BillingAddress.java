@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -22,6 +23,7 @@ public class BillingAddress {
 			@NotEmpty
 	private String country;
 			@NotEmpty
+			@Size(min = 6, max = 6)
 	private String zipcode;
 	public int getId() {
 		return id;

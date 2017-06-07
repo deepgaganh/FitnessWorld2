@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://www.springframework.org/tags" prefix="url"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -20,7 +24,7 @@
 </head>
 <body>
 
-	<div class="footer navbar-inverse navbar-bottom">
+	<div id="footer" class="footer navbar-inverse">
 		<div class="container-fluid">
 			<div class="container-fluid">
 				<div class="col-sm-8 col-sm-offset-2 text-center">
@@ -43,21 +47,21 @@
 							class="fa fa-pinterest"></i></a>
 					</div>
 				</div>
-				<!--/col-->
+			
 			</div>
-			<!--/container-->
-
+			
 		</div>
 		<!--/wrap-->
 
 		<p class="text-muted text-center">
-			All rights of this site are reserved <a href="#">FitnessWorld.com</a>
+			All rights of this site are reserved <a href="#">FitnessWorld</a>
 		</p>
 	</div>
 
+
 	<!--/.Copyright-->
 
-	</footer>
+
 	<!--/.Footer-->
 
 

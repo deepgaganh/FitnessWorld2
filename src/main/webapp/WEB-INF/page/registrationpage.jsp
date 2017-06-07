@@ -7,140 +7,162 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-	<div class="container wrapper">
-		<div class="container">
-			<url:url value="/all/register" var="url"></url:url>
-			<form:form action="${url }" modelAttribute="customer" method="post">
-				<div class="boxed" style="border: 1px solid">
-					<div class="form-group">
-						<label for="id"></label>
-						<form:hidden path="id"></form:hidden>
-						<form:errors path="id" cssStyle="color:red"></form:errors>
 
-					</div>
+<div class="container-wrapper">
+    <div class="container">
+       	<div class="page-header">
+		<h1>Register Customer</h1>
 
-					<div class="form-group">
-						<label for="firstname">Enter first name</label>
-						<form:input path="firstname"></form:input>
-						<form:errors path="firstname" cssStyle="color:red"></form:errors>
-					</div>
+		<p class="lead">Please fill in your information below:</p>
+	</div>
 
+	<url:url value="/all/register" var="url"></url:url>
+	<form:form action="${url }" modelAttribute="customer" method="post">
 
-					<div class="form-group">
-						<label for="lastname">Enter last name</label>
-						<form:input path="lastname"></form:input>
-						<form:errors path="lastname" cssStyle="color:red"></form:errors>
-					</div>
+		<h3>Basic Info:</h3>
 
+		<div class="form-group">
+			<label for="id"></label>
+			<form:hidden path="id"></form:hidden>
+			<form:errors path="id" cssStyle="color:red"></form:errors>
 
-
-					<div class="form-group">
-						<label for="email">Enter email</label>
-						<form:input path="email"></form:input>
-						<form:errors path="email" cssStyle="color:red"></form:errors>
-						<span style="color: red">${duplicateEmail }</span>
-					</div>
-
-
-
-					<div class="form-group">
-						<label for="phone">Enter phone number</label>
-						<form:input path="phone"></form:input>
-						<form:errors path="phone" cssStyle="color:red"></form:errors>
-					</div>
-				</div>
-				<br>
-				<div class="boxed" style="border: 1px solid">
-					<div class="form-group">
-						<label for="users.username">Enter username</label>
-						<form:input path="users.username"></form:input>
-						<form:errors path="users.username" cssStyle="color:red"></form:errors>
-						<span style="color: red">${duplicateUsername }</span>
-					</div>
-
-
-					<div class="form-group">
-						<label for="users.password">Enter password</label>
-						<form:input path="users.password" type="password"></form:input>
-						<form:errors path="users.password" cssStyle="color:red"></form:errors>
-					</div>
-				</div>
-				<br>
-				<div class="boxed" style="border: 1px solid">
-					<div class="form-group">
-						<label for="billingAddress.streetnumber">Enter Streetname</label>
-						<form:input path="billingAddress.streetnumber"></form:input>
-						<form:errors path="billingAddress.streetnumber" cssStyle="color:red"></form:errors>
-					</div>
-
-					<div class="form-group">
-						<label for="billingAddress.housenumber">Enter
-							House number</label>
-						<form:input path="billingAddress.housenumber"></form:input>
-						<form:errors path="billingAddress.housenumber"
-							cssStyle="color:red"></form:errors>
-					</div>
-
-					<div class="form-group">
-						<label for="billingAddress.city">Enter City</label>
-						<form:input path="billingAddress.city"></form:input>
-						<form:errors path="billingAddress.city" cssStyle="color:red"></form:errors>
-					</div>
-
-					<div class="form-group">
-						<label for="billingAddress.country">Enter country</label>
-						<form:input path="billingAddress.country"></form:input>
-						<form:errors path="billingAddress.country" cssStyle="color:red"></form:errors>
-					</div>
-
-					<div class="form-group">
-						<label for="billingAddress.zipcode">Enter zipcode</label>
-						<form:input path="billingAddress.zipcode"></form:input>
-						<form:errors path="billingAddress.zipcode" cssStyle="color:red"></form:errors>
-					</div>
-				</div>
-				<br>
-				<div class="boxed" style="border: 1px solid">
-					<div class="form-group">
-						<label for="shippingAddress.streetnumber">Enter Streetname</label>
-						<form:input path="shippingAddress.streetnumber"></form:input>
-						<form:errors path="shippingAddress.streetnumber"
-							cssStyle="color:red"></form:errors>
-					</div>
-
-					<div class="form-group">
-						<label for="shippingAddress.housenumber">Enter
-							House number</label>
-						<form:input path="shippingAddress.housenumber"></form:input>
-						<form:errors path="shippingAddress.housenumber"
-							cssStyle="color:red"></form:errors>
-					</div>
-
-					<div class="form-group">
-						<label for="shippingAddress.city">Enter City</label>
-						<form:input path="shippingAddress.city"></form:input>
-						<form:errors path="shippingAddress.city" cssStyle="color:red"></form:errors>
-					</div>
-
-					<div class="form-group">
-						<label for="shippingAddress.country">Enter country</label>
-						<form:input path="shippingAddress.country"></form:input>
-						<form:errors path="shippingAddress.country" cssStyle="color:red"></form:errors>
-					</div>
-
-					<div class="form-group">
-						<label for="shippingAddress.zipcode">Enter zipcode</label>
-						<form:input path="shippingAddress.zipcode"></form:input>
-						<form:errors path="shippingAddress.zipcode" cssStyle="color:red"></form:errors>
-					</div>
-				</div>
-				<input type="submit" value="Register">
-
-			</form:form>
 		</div>
+
+		<div class="form-group">
+			<label for="firstname">Firstname</label>
+			<form:input path="firstname" id="firstname" class="form-control"></form:input>
+			<form:errors path="firstname" cssStyle="color:red"></form:errors>
+		</div>
+
+
+		<div class="form-group">
+			<label for="lastname">Lastname</label>
+			<form:input path="lastname" id="lastname" class="form-control"></form:input>
+			<form:errors path="lastname" cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+
+
+		<div class="form-group">
+			<label for="email">Email</label>
+			<span style="color: #ff0000">${duplicateEmail }</span>
+			<form:errors path="email" cssStyle="color:#ff0000"></form:errors>
+			<form:input path="email" id="email" class="form-control"></form:input>
+			
+			
+		</div>
+
+		<div class="form-group">
+			<label for="phone">Phone</label>
+			<form:errors path="phone" cssStyle="color: #ff0000"></form:errors>
+			<form:input path="phone" id="phone" class="form-control"></form:input>
+			
+		</div>
+
+		<div class="form-group">
+			<label for="users.username">Username</label>
+			<span style="color: #ff0000">${duplicateUsername }</span>
+			<form:errors path="users.username" cssStyle="color:red"></form:errors>
+			<form:input path="users.username" class="form-control"></form:input>
+			
+			
+		</div>
+
+
+		<div class="form-group">
+			<label for="users.password">Password</label>
+			<form:errors path="users.password" cssStyle="color:#ff0000"></form:errors>
+			<form:input path="users.password" type="password" class="form-control"></form:input>
+			
+		</div>
+
+		<br>
+		<h3>Billing Address:</h3>
+
+		<div class="form-group">
+			<label for="billingAddress.streetnumber">Street Name</label>
+			<form:errors path="billingAddress.streetnumber" cssStyle="color:#ff0000"></form:errors>
+			<form:input path="billingAddress.streetnumber" class="form-control"></form:input>
+			
+		</div>
+
+		<div class="form-group">
+			<label for="billingAddress.housenumber">House Number</label>
+			<form:input path="billingAddress.housenumber" class="form-control"></form:input>
+			<form:errors path="billingAddress.housenumber"
+				cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+		<div class="form-group">
+			<label for="billingAddress.city">City</label>
+			<form:input path="billingAddress.city" class="form-control"></form:input>
+			<form:errors path="billingAddress.city" cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+		<div class="form-group">
+			<label for="billingAddress.country">Country</label>
+			<form:input path="billingAddress.country" class="form-control"></form:input>
+			<form:errors path="billingAddress.country" cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+		<div class="form-group">
+			<label for="billingAddress.zipcode">Zipcode</label>
+			<form:input path="billingAddress.zipcode" class="form-control"></form:input>
+			<form:errors path="billingAddress.zipcode" cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+		<br>
+		<h3>Shipping Address:</h3>
+
+		<div class="form-group">
+			<label for="shippingAddress.streetnumber">Street Name</label>
+			<form:input path="shippingAddress.streetnumber" class="form-control"></form:input>
+			<form:errors path="shippingAddress.streetnumber"
+				cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+		<div class="form-group">
+			<label for="shippingAddress.housenumber">Apartment Number</label>
+			<form:input path="shippingAddress.housenumber" class="form-control"></form:input>
+			<form:errors path="shippingAddress.housenumber"
+				cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+		<div class="form-group">
+			<label for="shippingAddress.city">City</label>
+			<form:input path="shippingAddress.city" class="form-control"></form:input>
+			<form:errors path="shippingAddress.city" cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+		<div class="form-group">
+			<label for="shippingAddress.country">Country</label>
+			<form:input path="shippingAddress.country" class="form-control"></form:input>
+			<form:errors path="shippingAddress.country" cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+		<div class="form-group">
+			<label for="shippingAddress.zipcode">Zipcode</label>
+			<form:input path="shippingAddress.zipcode" class="form-control"></form:input>
+			<form:errors path="shippingAddress.zipcode" cssStyle="color:#ff0000"></form:errors>
+		</div>
+
+
+		<input type="submit" value="Register" class="btn-btn-default">
+</form:form>
+</div>
+</div>
+
 </body>
 </html>

@@ -15,15 +15,18 @@
 			<tr>
 				<th>Category ID</th>
 				<th>Category Name</th>
+				<c:if test="${pageContext.request.userPrincipal.name == 'samblaze75'}">
 				<th>Action</th>
-
+				</c:if>
 				<c:forEach items="${categories}" var="c">
 					<tr>
 						<td>${c.cid }</td>
 						<td>${c.name }</td>
+						<c:if test="${pageContext.request.userPrincipal.name == 'samblaze75'}">
 						<url:url value="/admin/category/deletecategory/${c.cid }" var="url"></url:url>
 						<td><a href="${url }"><span
 						class="glyphicon  glyphicon-trash"></span></a></td>
+						</c:if>
 					
 					</tr>
 				</c:forEach>

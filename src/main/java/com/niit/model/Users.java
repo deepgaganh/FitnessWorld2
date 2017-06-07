@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -18,6 +19,7 @@ public class Users {
 	@NotEmpty
 	private String username;
 	@NotEmpty
+	@Size(min=6, max=8)
 	private String password;
 	private boolean enabled;
 	@OneToOne(mappedBy = "users")

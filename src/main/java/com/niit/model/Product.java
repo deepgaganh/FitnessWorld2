@@ -1,12 +1,15 @@
 package com.niit.model;
 
-import javax.persistence.Entity;
+import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -29,8 +32,10 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name="cid")
 	private Category category;
-	
-		
+	/*
+	@OneToMany(mappedBy="product")
+	private List<CartItem> cartItemList;
+	*/
 	public int getId() {
 		return id;
 	}
@@ -94,6 +99,15 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+/*	public List<CartItem> getCartItemList() {
+		return cartItemList;
+	}
+
+	public void setCartItemList(List<CartItem> cartItemList) {
+		this.cartItemList = cartItemList;
+	}
+*/
 
 		
 }

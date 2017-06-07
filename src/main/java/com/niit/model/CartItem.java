@@ -1,32 +1,34 @@
 package com.niit.model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
-@Entity
 public class CartItem {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	@OneToOne
-	@JoinColumn(name = "product_id")
-	private Product product;
+			@Id
+			@GeneratedValue(strategy = GenerationType.AUTO)
+	private int cartItemId;
 	
-	@ManyToOne
-	@JoinColumn(name = "cart_id")
+		    @ManyToOne
+		    @JoinColumn(name = "cartId")
 	private Cart cart;
 	
-	public int getId() {
-		return id;
+		    @ManyToOne
+		    @JoinColumn(name = "productId")
+	private Product product;
+	
+	private int quantity;
+	
+	private double totalprice;
+
+	public int getCartItemId() {
+		return cartItemId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCartItemId(int cartItemId) {
+		this.cartItemId = cartItemId;
 	}
 
 	public Product getProduct() {
@@ -35,6 +37,22 @@ public class CartItem {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public double getTotalprice() {
+		return totalprice;
+	}
+
+	public void setTotalprice(double totalprice) {
+		this.totalprice = totalprice;
 	}
 
 	public Cart getCart() {
@@ -46,4 +64,6 @@ public class CartItem {
 	}
 	
 	
+	
+
 }
