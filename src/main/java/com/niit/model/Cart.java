@@ -18,14 +18,18 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@OneToMany(mappedBy = "cart" , cascade=CascadeType.ALL , fetch = FetchType.EAGER)
+	private List<CartItem> cartItems;
+
+	
 	private double grandTotal;
+
 	@OneToOne
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	
-/*	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<CartItem> cartItems;
-*/
+			
 	public int getId() {
 		return id;
 	}
@@ -49,7 +53,7 @@ public class Cart {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-/*
+
 	public List<CartItem> getCartItems() {
 		return cartItems;
 	}
@@ -57,7 +61,7 @@ public class Cart {
 	public void setCartItems(List<CartItem> cartItems) {
 		this.cartItems = cartItems;
 	}
-*/
+
 	
 
 		 

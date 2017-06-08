@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -17,25 +16,25 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 public class Product {
 
-			@Id
-			@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String manufacturer;
 	private String discription;
 	private double price;
 	private int unitInStock;
-	
+
 	@Transient
 	private MultipartFile image;
-	
+
 	@ManyToOne
-	@JoinColumn(name="cid")
+	@JoinColumn(name = "cid")
 	private Category category;
-	/*
-	@OneToMany(mappedBy="product")
+	
+			@OneToMany(mappedBy="product")
 	private List<CartItem> cartItemList;
-	*/
+	
 	public int getId() {
 		return id;
 	}
@@ -100,14 +99,4 @@ public class Product {
 		this.category = category;
 	}
 
-/*	public List<CartItem> getCartItemList() {
-		return cartItemList;
-	}
-
-	public void setCartItemList(List<CartItem> cartItemList) {
-		this.cartItemList = cartItemList;
-	}
-*/
-
-		
 }
