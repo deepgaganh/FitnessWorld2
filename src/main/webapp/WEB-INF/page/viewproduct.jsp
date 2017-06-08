@@ -9,20 +9,30 @@
 
 </head>
 <body>
-<url:url value="/resources/images/${product.id }.png" var="url"></url:url>
-<img src="${url}" height="300px" width="300px">
-	PRODUCT NAME: ${product.name }
-	</br> PRICE : ${product.price }
-	</br> MANUFACTURER: ${product.manufacturer }
-	</br> DESCRIPTION : ${product.discription }
-	</br>Unit in Stock : ${product.unitInStock }
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<url:url value="/resources/images/${product.id }.png" var="url"></url:url>
+				<img src="${url}" height="300px" width="300px">
+			</div>
 
-	<url:url value="/all/product/productlist" var="url1"></url:url>
-	<a href="${url1 }">Browse All Products</a>
-	
-	<url:url value="/all/cartitem/getproduct/${product.id }" var="url"></url:url>
-	<a href="${url}" class="btn btn-warning" role="button">Add to Cart</a>
-
+			<div class="col-md-8">
+			
+				PRODUCT NAME: ${product.name } </br> 
+				PRICE : ${product.price } </br>
+				MANUFACTURER: ${product.manufacturer }</br> 
+				DESCRIPTION :${product.discription } </br>
+				Unit in Stock : ${product.unitInStock }
+				<br>
+				<url:url value="/all/product/productlist" var="url1"></url:url>
+				<a href="${url1 }">Browse All Products</a>
+				<br>
+				<url:url value="/all/cartitem/getproduct/${product.id }" var="url"></url:url>
+				<a href="${url}" class="btn btn-warning" role="button">Add to
+					Cart</a>
+			</div>
+		</div>
+	</div>
 </body>
 <%@ include file="footer.jsp"%>
 </html>

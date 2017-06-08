@@ -6,32 +6,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Category Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
-	<div class="container wrapper">
+
 		<div class="container">
-			<url:url var="url" value="/admin/category/savecategory"></url:url>
-			<form:form action="${url }" modelAttribute="category" method="post">
+			<div class="page-header">
+				<h1 class="text-center">Category Form</h1>
+				<p class="text-center">Add Category Here By Name</p>
+			</div>
 
-				<div class="form-group">
-					<label for="cid"></label>
-					<form:hidden path="cid"></form:hidden>
-				</div>
+			<div class="container">
+				<url:url var="url" value="/admin/category/savecategory"></url:url>
+				<form:form action="${url }" modelAttribute="category" method="post">
 
-				<div class="form-group">
-					<label for="name">Enter Category name</label>
-					<form:input path="name" class="form-control"></form:input>
-				</div>
+					<div class="form-group">
+						<label for="cid"></label>
+						<form:hidden path="cid"></form:hidden>
+					</div>
+
+					<div class="form-group">
+						<label for="name">Enter Category name</label>
+						<form:input path="name" class="form-control"></form:input>
+					</div>
 
 
-				<input type="submit" value="Add Category">
+					<input type="submit" value="Add Category">
 
-			</form:form>
+				</form:form>
+
+			</div>
 
 		</div>
-
-	</div>
-
 </body>
 <%@ include file="footer.jsp"%>
 </html>

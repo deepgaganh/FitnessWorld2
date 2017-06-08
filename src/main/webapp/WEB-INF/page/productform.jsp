@@ -14,76 +14,90 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-	<div class="container wrapper">
-		<div class="container">
-			<url:url value="/admin/product/saveproduct" var="url"></url:url>
-			<form:form action="${url }" modelAttribute="product" method="post"
-				enctype="multipart/form-data">
 
-				<div class="form-group">
-					<label for="id"></label>
-					<form:hidden path="id"></form:hidden>
+	<div class="container">
+		<div class="page-header">
+			<h1 class="text-center">Product Form</h1>
+
+			<p class="lead text-center">Please fill in information below:</p>
+		</div>
+
+		<url:url value="/admin/product/saveproduct" var="url"></url:url>
+		<form:form action="${url }" modelAttribute="product" method="post"
+			enctype="multipart/form-data">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="id"></label>
+						<form:hidden path="id"></form:hidden>
+					</div>
+
+					<div class="form-group">
+						<label for="name">Name</label>
+						<form:input path="name" class="form-control"></form:input>
+					</div>
+
+					<div class="form-group">
+						<label for="manufacturer">Manufacturer</label>
+						<form:input path="manufacturer" class="form-control"></form:input>
+					</div>
+
+					<div class="form-group">
+						<label for="discription">Discription</label>
+						<form:input path="discription" class="form-control"></form:input>
+					</div>
 				</div>
+				<br>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label for="price">Price</label>
+						<form:input path="price" class="form-control"></form:input>
+					</div>
 
-				<div class="form-group">
-					<label for="name">Enter Product name</label>
-					<form:input path="name"></form:input>
+
+					<div class="form-group">
+						<label for="unitInStock">Unit In Stock</label>
+						<form:input path="unitInStock" class="form-control"></form:input>
+					</div>
+
+					<div class="form-group">
+						<label for="image">Upload Image</label> <input type="file"
+							name="image">
+					</div>
 				</div>
-
+			</div>
+			<div class="col-md-12">
 				<div class="form-group">
-					<label for="manufacturer">Product Manufacturer</label>
-					<form:input path="manufacturer"></form:input>
-				</div>
-
-				<div class="form-group">
-					<label for="discription">Discription</label>
-					<form:input path="discription"></form:input>
-				</div>
-
-
-				<div class="form-group">
-					<label for="price">Product Price</label>
-					<form:input path="price"></form:input>
-				</div>
-
-
-				<div class="form-group">
-					<label for="unitInStock">Unit In Stock</label>
-					<form:input path="unitInStock"></form:input>
-				</div>
-
-				<div class="form-group">
-					<label for="image">Upload Image</label> <input type="file"
-						name="image">
-				</div>
-
-				<div class="form-group">
-					<label for="category">Select Category</label>
+					<label for="category">Select Category : </label>
 					<c:forEach items="${categorydetails }" var="c">
 
 						<form:radiobutton path="category.cid" value="${c.cid }" />${c.name }
 
 					</c:forEach>
-					
+
 				</div>
+			</div>
 
 
-				<input type="submit" value="Add Product">
-
-			</form:form>
-
-		</div>
+			<div class="col-lg-12 text-center">
+				<input type="submit" value="Add Product" class="btn btn-lg btn-primary">
+			</div>
+		</form:form>
 
 	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 
 </body>

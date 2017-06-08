@@ -41,8 +41,9 @@ $(document).ready(function() {
 					</c:if>
 				</tr>
 			</thead>
-			<c:forEach items="${products}" var="p">
+			
 				<tbody>
+					<c:forEach items="${products}" var="p">
 					<tr>
 						<url:url value="/resources/images/${p.id }.png" var="url"></url:url>
 						<td><img src="${url}" height="50" width="50"></td>
@@ -65,8 +66,9 @@ $(document).ready(function() {
 					</c:if>
 
 					</tr>
+					</c:forEach>
 				</tbody>
-			</c:forEach>
+			
 		</table>
 	 
 </body>

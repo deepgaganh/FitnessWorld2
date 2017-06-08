@@ -50,7 +50,7 @@ public class CustomerController {
 				}
 			customerService.saveCustomer(customer);
 			
-			return "home";
+			return "login";
 		}
 		
 }

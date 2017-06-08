@@ -64,7 +64,10 @@
 		</div>
 	</div>
 	
-</br>
+<br>
+<br>
+<br>
+	
 </body>
 <%@ include file="footer.jsp"%>
 </html>

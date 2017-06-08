@@ -1,0 +1,27 @@
+body {
+    
+    
+    background-image: url("../images/bg2.png")
+}
+
+.form_bg {
+    background-color:#333;
+    color:#666;
+    padding:20px;
+    border-radius:10px;
+    position: relative;
+    border:1px solid #fff;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 450px;
+    height: 600px;
+}
+
+.align-center {
+    
+    text-align:center;
+}
+

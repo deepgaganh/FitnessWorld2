@@ -48,6 +48,8 @@ public class ProductController {
 	public String editproduct(@PathVariable int id, Model model)
 	{
 		Product product=productService.getProductById(id);
+		List<Category> categoryDetails=categoryService.getAllCategories();
+		model.addAttribute("categorydetails",categoryDetails);
 		//[product attribute - [4,'Toy','descr','mnat',7800,12,..]
 		model.addAttribute("product",product);
 		return "productform";
