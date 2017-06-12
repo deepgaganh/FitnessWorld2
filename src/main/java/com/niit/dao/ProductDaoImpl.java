@@ -2,7 +2,6 @@ package com.niit.dao;
 
 import java.util.List;
 
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.model.Product;
-@Repository
+@Repository	
 public class ProductDaoImpl implements ProductDao{
 			@Autowired
 	private SessionFactory sessionFactory;

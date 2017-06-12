@@ -10,4 +10,5 @@ public interface CustomerDao {
 	Customer getCustomerById(int customerId);
 	List<Customer> getCustomers(); // duplicate username and email  
 	Customer getCustomerByUsername(String username);
+	public void saveOrUpdateCustomer(Customer customer);
 }

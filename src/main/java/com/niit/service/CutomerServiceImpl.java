@@ -2,6 +2,8 @@ package com.niit.service;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ public class CutomerServiceImpl implements CustomerService{
 			@Autowired
 	private CustomerDao customerDao;
 	public void saveCustomer(Customer customer) {
-			customerDao.saveCustomer(customer);
+			customerDao.saveOrUpdateCustomer(customer);
 			
 	}
 	public Customer getCustomerById(int customerId) {
@@ -27,6 +29,5 @@ public class CutomerServiceImpl implements CustomerService{
 		  return customerDao.getCustomerByUsername(username);
 	}
 
-	
 
 }

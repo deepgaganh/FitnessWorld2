@@ -1,7 +1,7 @@
 package com.niit.model;
 
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,13 +12,13 @@ import javax.persistence.ManyToOne;
 public class CartItem {
 			@Id
 			@GeneratedValue(strategy = GenerationType.AUTO)
-	private int cartItemId;
+	private int Id;
 	
-		    @ManyToOne
+		    @ManyToOne(fetch=FetchType.EAGER)
 		    @JoinColumn(name = "cartId")
 	private Cart cart;
 	
-		    @ManyToOne
+		    @ManyToOne(fetch=FetchType.EAGER)
 		    @JoinColumn(name = "productId")
 	private Product product;
 	
@@ -26,12 +26,13 @@ public class CartItem {
 	
 	private double totalprice;
 
-	public int getCartItemId() {
-		return cartItemId;
+
+	public int getId() {
+		return Id;
 	}
 
-	public void setCartItemId(int cartItemId) {
-		this.cartItemId = cartItemId;
+	public void setId(int id) {
+		Id = id;
 	}
 
 	public Product getProduct() {

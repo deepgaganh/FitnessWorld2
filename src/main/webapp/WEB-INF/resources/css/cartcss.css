@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+body {
+    background-image: url(../images/lightwood.jpg);  
+   
+}
+table tr td, table tr th{
+    background-image: url(../images/lightwood.jpg); 
+    border: 0.25px solid black;
+    border-spacing: 10px 50px;
+    
+}

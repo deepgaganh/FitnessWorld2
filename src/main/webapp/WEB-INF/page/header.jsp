@@ -11,23 +11,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- Angular Js -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-<!-- JQuery -->
-<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-<script
-	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-<link
-	href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"
-	rel="stylesheet">
+	<!-- Angular Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+      
+       <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+
+    <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -43,8 +40,8 @@
 
 			<url:url value="/home" var="url"></url:url>
 			<a class="navbar-brand" href="${url}"> <url:url
-					value="http://localhost:8080/FitnessWorld2/resources/images/logo 500 by 250.png" var="url"></url:url> <img
-				src="${url}" class="img-responsive"></a>
+					value="http://localhost:8080/FitnessWorld2/resources/images/logo 500 by 250.png"
+					var="url"></url:url> <img src="${url}" class="img-responsive"></a>
 		</div>
 
 		<!-- Collapse Nav-bar -->
@@ -60,6 +57,7 @@
 
 
 					<url:url value="/all/registrationform" var="url"></url:url>
+					
 					<c:if test="${pageContext.request.userPrincipal.name==null }">
 						<li><a href="${url}"><span
 								class="glyphicon glyphicon-log-in"></span>Sign Up</a></li>
@@ -72,6 +70,15 @@
 						<li><a
 							href="<c:url value="/j_spring_security_logout"></c:url>">logout</a>
 						</li>
+						<c:if
+					test="${pageContext.request.userPrincipal.name != 'samblaze75'}">
+				
+						<url:url value="/customer/cart" var="url"></url:url>
+						<li><a href="${url }"> <span
+								class="glyphicon glyphicon-shopping-cart"></span>
+						</a>
+						</li>
+						</c:if>
 					</c:if>
 
 				</ul>
@@ -99,7 +106,7 @@
 									${c.name }</a></li>
 						</c:forEach>
 					</ul></li>
- 
+
 
 				<!-- Admin Add Product -->
 

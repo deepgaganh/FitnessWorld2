@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +15,7 @@ import com.niit.model.Customer;
 import com.niit.model.Users;
 
 @Repository
+
 public class CustomerDaoImpl implements CustomerDao {
 			@Autowired
 	private SessionFactory sessionFactory;
@@ -39,7 +41,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		session.close();
 
 	}
-
+	@SuppressWarnings("unchecked")
 	public List<Customer> getCustomers() {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from Customer");
@@ -58,6 +60,15 @@ public class CustomerDaoImpl implements CustomerDao {
         Query query = session.createQuery("from Customer where username = ?");
         query.setString(0, username);
         return (Customer) query.uniqueResult();
+	}
+
+	public void saveOrUpdateCustomer(Customer customer) {
+		Session session=sessionFactory.openSession();
+		Transaction transaction=session.beginTransaction(); 
+		session.saveOrUpdate(customer);
+		session.flush();
+		transaction.commit();
+		session.close();
 	}
 
 }

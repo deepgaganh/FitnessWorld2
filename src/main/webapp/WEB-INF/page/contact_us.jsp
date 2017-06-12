@@ -9,9 +9,7 @@
 <title>Contact Us</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-<link rel="stylesheet" href="resource/css/about.css" />
-</head>
+	<link rel="stylesheet" href="resources/css/about.css"/></head>
 <body>
 	<br>
 	<div class="jumbotron jumbotron-sm">

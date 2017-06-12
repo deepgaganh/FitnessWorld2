@@ -1,15 +1,24 @@
 package com.niit.dao;
 
-import java.io.IOException;
+import java.util.List;
 
 import com.niit.model.Cart;
+import com.niit.model.CartItem;
 
 public interface CartDao {
 
     Cart getCartById(int cartId);
 
-    Cart validate(int cartId) throws IOException;
+    void addCartItem(CartItem cartItem);
 
-    void update(Cart cart);
+    void removeCartItem(CartItem cartItem);
 
+    void removeAllCartItems(Cart cart);
+
+    CartItem getCartItemByProductId (int id,int cartId);
+    
+   List<CartItem> getAllCartItems(int cartId);
+   
+   void update(Cart cart);
+   //void deleteCartItemThroughProduct(Product product);
 }
