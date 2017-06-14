@@ -29,6 +29,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		authorities.setRole("ROLE_USER");
 
 		Session session = sessionFactory.openSession();
+		Transaction transaction=session.beginTransaction();
 		session.save(authorities);// Authorities table //insert into authorities
 									// values (1,'john','ROLE_USER')
 
@@ -37,10 +38,13 @@ public class CustomerDaoImpl implements CustomerDao {
 									// the cart table.
 		customer.setCart(cart);// update the cart_id in customer table
 		session.save(customer); // Users,Customer,BillingAddress,ShippingAddress,Cart
+		//SESSION.saveorUpdate(Customer)
 		session.flush();
+		transaction.commit();
 		session.close();
 
 	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Customer> getCustomers() {
 		Session session = sessionFactory.openSession();
@@ -68,7 +72,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		session.saveOrUpdate(customer);
 		session.flush();
 		transaction.commit();
-		session.close();
+		session.close();	
 	}
 
 }

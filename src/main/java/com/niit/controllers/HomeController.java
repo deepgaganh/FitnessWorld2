@@ -41,5 +41,10 @@ public class HomeController {
 		return "login";
 
 	}
+	
+	@RequestMapping(value = "/cart")
+	public String getCart() {
+		return "mycart";
+	}
 
 }

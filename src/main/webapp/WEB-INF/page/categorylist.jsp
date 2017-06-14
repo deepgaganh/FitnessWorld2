@@ -20,7 +20,7 @@
 				<th>Category ID</th>
 				<th>Category Name</th>
 				<c:if
-					test="${pageContext.request.userPrincipal.name == 'samblaze75'}">
+					test="${pageContext.request.userPrincipal.name == 'pooja'}">
 					<th>Action</th>
 				</c:if>
 		</thead>
@@ -31,7 +31,7 @@
 					<td>${c.cid }</td>
 					<td>${c.name }</td>
 					<c:if
-						test="${pageContext.request.userPrincipal.name == 'samblaze75'}">
+						test="${pageContext.request.userPrincipal.name == 'pooja'}">
 						<url:url value="/admin/category/deletecategory/${c.cid }"
 							var="url"></url:url>
 						<td><a href="${url }"><span

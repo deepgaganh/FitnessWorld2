@@ -34,7 +34,7 @@
 								<c:forEach items="${cartList}" var="cartItem">
 									<tr>
 										<td class="span1"><img
-											src="<c:url value='../../../resources/theme1/images/${cartItem.product.id}.png'/>"
+											src="<c:url value='/resources/images/${cartItem.product.id}.png'/>"
 											alt="image" width="140" height="140" /></td>
 										<td>${cartItem.product.id}</td>
 										<td>${cartItem.product.name}</td>

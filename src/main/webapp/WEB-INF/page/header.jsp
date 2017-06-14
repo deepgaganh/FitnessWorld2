@@ -12,19 +12,19 @@
 <title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!-- Angular Js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-      
-       <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Angular Js -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 
-    <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+<!-- Data Tables -->
+<link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -57,7 +57,7 @@
 
 
 					<url:url value="/all/registrationform" var="url"></url:url>
-					
+
 					<c:if test="${pageContext.request.userPrincipal.name==null }">
 						<li><a href="${url}"><span
 								class="glyphicon glyphicon-log-in"></span>Sign Up</a></li>
@@ -71,13 +71,12 @@
 							href="<c:url value="/j_spring_security_logout"></c:url>">logout</a>
 						</li>
 						<c:if
-					test="${pageContext.request.userPrincipal.name != 'samblaze75'}">
-				
-						<url:url value="/customer/cart" var="url"></url:url>
-						<li><a href="${url }"> <span
-								class="glyphicon glyphicon-shopping-cart"></span>
-						</a>
-						</li>
+							test="${pageContext.request.userPrincipal.name != 'pooja'}">
+
+							<url:url value="/cart" var="url"></url:url>
+							<li><a href="${url }"> <span
+									class="glyphicon glyphicon-shopping-cart"></span>
+							</a></li>
 						</c:if>
 					</c:if>
 
@@ -97,7 +96,7 @@
 				<li><a href="${url}">About Us</a></li>
 
 				<!-- DropDown -->
-				<li class="dropdown"><a href="" class="dropdown-toggle"
+				 <li class="dropdown"><a href="" class="dropdown-toggle"
 					data-toggle="dropdown"> Select by Category<b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<c:forEach var="c" items="${categories }">
@@ -106,30 +105,30 @@
 									${c.name }</a></li>
 						</c:forEach>
 					</ul></li>
-
+ 
 
 				<!-- Admin Add Product -->
 
-				<c:if
-					test="${pageContext.request.userPrincipal.name == 'samblaze75'}">
-					<url:url value="/admin/product/productform" var="url"></url:url>
-					<li><a href="${url }">Add New Product</a></li>
+				<c:if test="${pageContext.request.userPrincipal.name!=null }">
+					<c:if test="${pageContext.request.userPrincipal.name == 'pooja'}">
+						<url:url value="/admin/product/productform" var="url"></url:url>
+						<li><a href="${url }">Add New Product</a></li>
+					</c:if>
+
+					<!-- Browse All Product -->
+					<url:url value="/all/product/productlist" var="url"></url:url>
+					<li><a href="${url}">Browse All Products</a></li>
+
+					<!-- Admin Add Category -->
+					<c:if test="${pageContext.request.userPrincipal.name == 'pooja'}">
+						<url:url value="/admin/category/categoryform" var="url"></url:url>
+						<li><a href="${url}">Add Category</a></li>
+					</c:if>
+					<!-- Browse All Category -->
+					<url:url value="/all/category/categorylist" var="url"></url:url>
+					<li><a href="${url}">Browse All Category</a></li>
 				</c:if>
-
-				<!-- Browse All Product -->
-				<url:url value="/all/product/productlist" var="url"></url:url>
-				<li><a href="${url}">Browse All Products</a></li>
-
-				<!-- Admin Add Category -->
-				<c:if
-					test="${pageContext.request.userPrincipal.name == 'samblaze75'}">
-					<url:url value="/admin/category/categoryform" var="url"></url:url>
-					<li><a href="${url}">Add Category</a></li>
-				</c:if>
-				<!-- Browse All Category -->
-				<url:url value="/all/category/categorylist" var="url"></url:url>
-				<li><a href="${url}">Browse All Category</a></li>
-
+				
 				<!-- Contact Us -->
 				<url:url value="/contact" var="url"></url:url>
 				<li><a href="${url}">Contact Us</a></li>
