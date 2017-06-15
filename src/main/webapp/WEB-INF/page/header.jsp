@@ -12,19 +12,23 @@
 <title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
-href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
-src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
-src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- Angular Js -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
 
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 <!-- Data Tables -->
-<link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
+<link
+	href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"
+	rel="stylesheet">
 </head>
 <body>
 
@@ -70,14 +74,13 @@ src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></scrip
 						<li><a
 							href="<c:url value="/j_spring_security_logout"></c:url>">logout</a>
 						</li>
-						<c:if
-							test="${pageContext.request.userPrincipal.name != 'pooja'}">
+						<%-- <c:if test="${pageContext.request.userPrincipal.name != 'pooja'}">
 
-							<url:url value="/cart" var="url"></url:url>
+							<url:url value="/user/cart/view/" var="url"></url:url>
 							<li><a href="${url }"> <span
 									class="glyphicon glyphicon-shopping-cart"></span>
 							</a></li>
-						</c:if>
+						</c:if> --%>
 					</c:if>
 
 				</ul>
@@ -96,16 +99,17 @@ src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></scrip
 				<li><a href="${url}">About Us</a></li>
 
 				<!-- DropDown -->
-				 <li class="dropdown"><a href="" class="dropdown-toggle"
-					data-toggle="dropdown"> Select by Category<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<c:forEach var="c" items="${categories }">
-							<li><a
-								href="<c:url value="/all/product/productsByCategory?searchCondition=${c.name }"></c:url>">
-									${c.name }</a></li>
-						</c:forEach>
-					</ul></li>
- 
+				<c:if test="${pageContext.request.userPrincipal.name!=null }">
+					<li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown"> Select by Category<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<c:forEach var="c" items="${categories }">
+								<li><a
+									href="<c:url value="/all/product/productsByCategory?searchCondition=${c.name }"></c:url>">
+										${c.name }</a></li>
+							</c:forEach>
+						</ul></li>
+				</c:if>
 
 				<!-- Admin Add Product -->
 
@@ -128,7 +132,7 @@ src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></scrip
 					<url:url value="/all/category/categorylist" var="url"></url:url>
 					<li><a href="${url}">Browse All Category</a></li>
 				</c:if>
-				
+
 				<!-- Contact Us -->
 				<url:url value="/contact" var="url"></url:url>
 				<li><a href="${url}">Contact Us</a></li>

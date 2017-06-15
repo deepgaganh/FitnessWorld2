@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="resources/css/about.css"/>
 </head>
 <body>
-	</br>
+	<br>
 	<div class="jumbotron jumbotron-sm">
 		<div class="container">
 			<div class="row">

@@ -1,5 +1,5 @@
 <html>
 <body>
-<%@ include file="WEB-INF/page/login.jsp" %>
+<%@ include file="WEB-INF/page/home.jsp" %>
 </body>
 </html>
